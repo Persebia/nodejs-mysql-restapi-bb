@@ -4,7 +4,8 @@ import { pool_bb } from "../db.js";
 export const createEmployee_bb = async (req_bb, res_bb) => {
    try {
         const {name_bb, salary_bb} = req_bb.body;
-        const [rows_bb] = await pool_bb.query('INSERT INTO td_employee_bb (name_bb, salary_bb) VALUES (?, ?)', [name_bb, salary_bb]);
+        const [rows_bb] = await pool_bb.query('INSERT INTO td_employee_bb (name_bb, salary_bb) VALUES (?, ?)', 
+            [name_bb, salary_bb]);
         res_bb.send({
                 id:rows_bb.insertId,
                 name_bb,
